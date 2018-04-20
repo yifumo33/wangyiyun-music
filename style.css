@@ -1,0 +1,136 @@
+
+
+
+
+
+/*logolist*/
+.logolist{
+	background:#e81113;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding:17px 10px;
+}
+.logolist .logo{
+	width:  142px;
+    height: 25px;
+    vertical-align: top;
+}
+.logolist .download{
+	font-size:15px;
+	line-height: 2;
+	padding:0 10px;
+	font-weight: 400;
+	color: white; 
+	position: relative;
+}
+.logolist .download::after{
+	content: '';
+	display: block;
+	position: absolute;
+	width: 200%;
+	height: 200%;
+	border-radius: 35px; 
+	top: 0;
+	left: 0;
+	border: 1px solid white;
+	transform: scale(0.5);
+	transform-origin: 0 0;
+}
+
+.tabs ol{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.tabs ol li{
+	text-align: center;
+	width: 33.333333%;
+}
+
+.text{
+	padding:0px 5px; 
+	position: relative;
+	display: inline-block;
+	line-height:40px;
+	text-align: center;
+}
+
+li.active .text{
+   color: #d33a31;
+}
+
+li.active .text::after{
+	position: absolute;
+	content: '';
+	background: red;
+	left: 0;
+	bottom: 0;
+	display: block;
+	width: 100%; 
+	height: 2px;
+}
+
+.tabs{
+	border-bottom:1px #e8e8e8 solid;
+}
+
+.playlist{
+	background: #fcfcfd;
+}
+
+.playlist h3{
+	margin:20px 0px 14px; 
+	font-size: 17px;
+	line-height: 20px;
+	color:black;
+	padding-left:9px;
+	position: relative;  
+}
+
+.playlist h3::after{
+	content: '';
+	position: absolute;
+	display: block;
+	width: 2px;
+	height:80%;
+	left: 0;
+	top:0;
+	background: red;  
+}
+
+
+
+.songs-list{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.songs{
+	width:32.7%;
+	margin-bottom:16px; 
+}
+.songs img{
+	width: 100%;
+}
+.songs p{
+	display: -webkit-box;
+
+-webkit-box-orient: vertical;
+
+-webkit-line-clamp:2;
+
+overflow: hidden;
+
+padding: 0px 2px 0 6px;
+    line-height: 1.2;
+    font-size: 13px;
+}
+
+.content-page{
+	display: none;
+}
+.content-page.active{
+	display: block;
+}
+
