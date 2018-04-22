@@ -1,6 +1,8 @@
 
 
-
+.BFC{
+	overflow:hidden;
+}
 
 
 /*logolist*/
@@ -76,6 +78,8 @@ li.active .text::after{
 }
 
 .playlist{
+	padding-top:1px; 
+	margin-top:103px; 
 	background: #fcfcfd;
 }
 
@@ -84,7 +88,7 @@ li.active .text::after{
 	font-size: 17px;
 	line-height: 20px;
 	color:black;
-	padding-left:9px;
+	padding-left:9px; 
 	position: relative;  
 }
 
@@ -132,5 +136,86 @@ padding: 0px 2px 0 6px;
 }
 .content-page.active{
 	display: block;
+}
+
+
+/*new-music*/
+
+
+
+.new-music li{
+	margin-top: 10px;
+	display: flex;
+	justify-content:space-between;
+	margin-left:9px; 
+    padding-bottom:3px;
+    border-bottom:1px solid #f1f1f2;
+}
+
+
+.imformation h4{
+	font-size: 17px;
+}
+
+.icon-play{
+	display: inline-block;
+	width:20px;
+	height: 20px;
+	font-size: 40px;
+}
+span{
+	color: #888888;
+}
+
+h5{
+	font-size: 12px;
+	color: #888888;
+}
+#icon-high-quality{
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+}
+#haha{
+	font-size:22px;
+	padding-right: 9px;
+}
+
+/*ad*/
+.ad{
+	background: transparent url(https://i.loli.net/2018/04/22/5adbf8ca2ff5f.png) center;
+	background-size: cover;
+	padding:63.375px 0 17px; 
+	text-align: center;
+}
+.ad .logosvg{
+	width: 230px;
+	height: 44px;
+}
+.openapp{
+
+}
+.openapp h6{
+	margin:15px auto 5px;
+	width:299px; 
+	color: #e70a0e;
+	font-size:16px;
+	line-height:38px;
+	 border:1px solid  #e70a0e;
+	 border-radius: 38px;
+}
+.copyright{
+	font-size:12px;
+	transform: scale(0.75);
+	color:#9e9c9d;
+}
+/*fixed-top*/
+
+.fixed-top{
+	width:100%;
+	background: white; 
+	position:fixed; 
+	top:0;
+	z-index:999; 
 }
 
