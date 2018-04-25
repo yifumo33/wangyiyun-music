@@ -79,7 +79,7 @@
 
 		var audio = new Audio()
 
-		audio.play()
+		
 
        var query = new AV.Query('Songs_List');
   	   query.get(id).then(function (result) {
@@ -87,6 +87,7 @@
 	        var str =" background: transparent url(" + img +") center no-repeat;background-size:cover"
   	   		console.log(str)
             audio.src = result.attributes.url
+            audio.play()
 			document.styleSheets[2].addRule('.page::before',str)
 			document.styleSheets[2].addRule('.picture',str)
 		  }, function (error) {
