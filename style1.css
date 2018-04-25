@@ -1,0 +1,126 @@
+.page::before{
+	display: block;
+    z-index:-99; 
+	content:'';
+	position: absolute;
+	top:-10px;
+	left:-10px;
+	right:-10px;
+	bottom:-10px; 
+	width:100vw;
+	height:100vh;
+	background: transparent url(https://i.loli.net/2018/04/24/5adf24c945b92.png) center no-repeat;
+	background-size: cover;
+	 -webkit-filter: blur(10px); 
+       -moz-filter: blur(10px);
+        -ms-filter: blur(10px);    
+            filter: blur(20px);
+}
+
+
+
+
+
+.CD{
+	
+	margin:80px auto;
+	width:296px;
+	height:296px;
+}
+
+.page > img{
+	z-index:99; 
+	top:0;
+	
+	left:50%;
+	transform:translateX(-50%); 
+	width:110px;
+	height:150px;  
+	position: absolute;
+}
+
+
+.song-rotate{
+	position:relative;
+	width:100%;
+	height:100%;
+	animation: rotate linear 10s infinite;
+	animation-play-state: paused;
+}
+.picture{
+	position:absolute;
+	width:65%;
+	height:65%;
+	border-radius: 50%;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);   
+	background: transparent no-repeat url(https://i.loli.net/2018/04/24/5adf24c945b92.png) center;
+	background-size:cover;
+}
+
+
+
+
+
+
+.icon{
+	font-size:20px; 
+}
+
+
+.song-rotate::before{
+	overflow:hidden;
+	content:'';
+	display: block; 
+	position:absolute;
+	width:100%;
+	height:100%; 
+	background: transparent no-repeat url(https://i.loli.net/2018/04/24/5adef26129fe0.png) center;
+	background-size:cover;
+}
+.song-rotate::after{ 
+	content:'';
+	position:absolute;
+	width:100%;
+	height:100%;
+	display:block;
+	background: transparent no-repeat url(https://i.loli.net/2018/04/24/5adef2612185c.png) center;
+	background-size:cover;
+}
+.playing{
+	animation-play-state:running;
+}
+@keyframes rotate{
+	from{
+		transform:rotate(0deg);
+	}
+	to{
+		transform:rotate(360deg);
+	}
+}
+
+
+footer{
+	display: flex;
+	justify-content:space-between;
+	padding:10px 10px;
+	margin-top:220px; 
+}
+footer .button{
+	text-align: center;
+	line-height:40px;
+	font-size:18px; 
+	padding:6px;
+	border:1px solid #e70a0e;   
+	width:48.5%;
+	border-radius:30px;
+}
+footer .open{
+	color: #e70a0e;
+}
+footer .download{
+	background:#e70a0e;
+	color: #feffff;
+}
+

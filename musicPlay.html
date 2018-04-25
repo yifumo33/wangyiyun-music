@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="//at.alicdn.com/t/font_642073_t6ecoia0ju877gb9.css">	
+	<script src="//at.alicdn.com/t/font_638243_fqnsn91nqfbc5wmi.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+	<title>musicPlay</title>
+	<link rel="stylesheet" href="./reset.css">
+	<link rel="stylesheet" href="./style1.css">
+	<script src="./vendor/av-min.js"></script>
+</head>
+<body>
+	  <div class="page">
+	
+	  		<img src="https://i.loli.net/2018/04/24/5adef2612b956.png" alt="">
+	  		
+	  	<div class="CD">
+	  		<div class="song-rotate playing">
+	  			<div class="play">
+	  	
+	  			</div>
+	  			<div class="picture">
+	  				
+	  			</div>
+	  		</div>
+	  	</div>
+	  </div>
+	
+<footer>
+	<div class="open button">打开</div>
+	<div class="download button">下载</div>
+</footer>
+
+
+
+<!-- https://i.loli.net/2018/04/24/5adf24c945b92.png -->
+
+
+
+	
+
+
+
+
+
+
+	<script>
+
+
+       
+		var playing = true
+		$('.song-rotate').on('click',function(){
+			$(this).toggleClass('playing')
+			if(!playing){
+				audio.play()
+				playing = true
+			}else{
+				audio.pause()
+				playing = false
+			}
+		})
+
+        $('audio').on('playing',function(){
+        	console.log(1)
+        })
+
+		var url = location.href
+		var r1 = url.match(/id=\w+$/g)
+		var id = r1[0].match(/\w+$/g)[0]
+		
+		var APP_ID = 'rhrzhbNB0l44BfDJTxfeHK06-gzGzoHsz';
+			var APP_KEY = 'UrzKfmw5TLjCcy6fcNeXg1gx';
+			AV.init({
+			  appId: APP_ID,
+			  appKey: APP_KEY
+		});
+
+		var audio = new Audio()
+
+		audio.play()
+
+       var query = new AV.Query('Songs_List');
+  	   query.get(id).then(function (result) {
+  	   		var img = result.attributes.img
+	        var str =" background: transparent url(" + img +") center no-repeat;background-size:cover"
+  	   		console.log(str)
+            audio.src = result.attributes.url
+			document.styleSheets[2].addRule('.page::before',str)
+			document.styleSheets[2].addRule('.picture',str)
+		  }, function (error) {
+		     console.log(error)
+		  });
+	</script>
+</body> 
+</html>
