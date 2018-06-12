@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" href="//at.alicdn.com/t/font_642073_t6ecoia0ju877gb9.css">	
+	<link rel="stylesheet" href="//at.alicdn.com/t/font_642073_4nmhfxq0trsbgldi.css">	
 	<script src="//at.alicdn.com/t/font_638243_fqnsn91nqfbc5wmi.js"></script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,14 +19,20 @@
 	  	<div class="CD">
 	  		<div class="song-rotate playing">
 	  			<div class="play">
-	  	
 	  			</div>
 	  			<div class="picture">
-	  				
 	  			</div>
 	  		</div>
+	  		<div class="wawa iconfont icon-zanting"></div>
+
 	  	</div>
 	  </div>
+	  <section class="lyric">
+
+
+	  </section>
+	 
+	 
 	
 <footer>
 	<div class="open button">打开</div>
@@ -47,12 +53,19 @@
 
 
 	<script>
+		$('.wawa').on('click',function(){
+			if($(this).hasClass('icon-bofang')){
+				$(this).addClass('icon-zanting').removeClass('icon-bofang')
+			}else{
+				$(this).addClass('icon-bofang').removeClass('icon-zanting')
 
-
+			}
+		})
+      
        
 		var playing = true
-		$('.song-rotate').on('click',function(){
-			$(this).toggleClass('playing')
+		$('.CD').on('click',function(){
+			$('.song-rotate').toggleClass('playing')
 			if(!playing){
 				audio.play()
 				playing = true
@@ -62,17 +75,15 @@
 			}
 		})
 
-        $('audio').on('playing',function(){
-        	console.log(1)
-        })
-
+       
+       
 		var url = location.href
 		var r1 = url.match(/id=\w+$/g)
 		var id = r1[0].match(/\w+$/g)[0]
 		
 		var APP_ID = 'rhrzhbNB0l44BfDJTxfeHK06-gzGzoHsz';
-			var APP_KEY = 'UrzKfmw5TLjCcy6fcNeXg1gx';
-			AV.init({
+		var APP_KEY = 'UrzKfmw5TLjCcy6fcNeXg1gx';
+		AV.init({
 			  appId: APP_ID,
 			  appKey: APP_KEY
 		});
@@ -80,10 +91,15 @@
 		var audio = new Audio()
 
 		
+	    audio.addEventListener('ended',function(){
+	    	audio.play()
+	    })
 
        var query = new AV.Query('Songs_List');
   	   query.get(id).then(function (result) {
   	   		var img = result.attributes.img
+  	   		loadLyric(result.attributes.Lyric)
+  	   		setlyric(lyricObj)
 	        var str =" background: transparent url(" + img +") center no-repeat;background-size:cover"
   	   		console.log(str)
             audio.src = result.attributes.url
@@ -93,6 +109,43 @@
 		  }, function (error) {
 		     console.log(error)
 		  });
+
+
+
+var lyricObj = {}
+function loadLyric(lyric){
+	lyricObj = {}
+	var arr = []
+		arr = lyric.split('\n')
+		arr.forEach(function(element){
+
+			var times = element.match(/\d{2}:\d{2}/g)
+			var words = element.replace(/\[.+?\]/g,'')
+			lyricObj[''+times] = words
+		})
+		
+}
+
+ function setlyric(lyricObj){
+ 	var index = 1
+ 	setInterval(function(){
+ 		var min = Math.floor(audio.currentTime / 60)
+		var sec = audio.currentTime % 60 > 10? Math.floor( audio.currentTime % 60) : '0'+ Math.floor( audio.currentTime % 60)
+		if(lyricObj['0' + min + ':' + sec]) {
+
+			$('.lyric').html(lyricObj['0' + min + ':' + sec])
+		}
+	    
+
+		
+ 	},1000)
+ }
+
+  
+  $('.button').on('click',function(){
+  	console.log('button')
+  })
+
 	</script>
 </body> 
 </html>

@@ -17,12 +17,14 @@
             filter: blur(20px);
 }
 
-
+body{
+	w
+}
 
 
 
 .CD{
-	
+	position:relative;
 	margin:80px auto;
 	width:296px;
 	height:296px;
@@ -57,8 +59,10 @@
 	transform:translate(-50%,-50%);   
 	background: transparent no-repeat url(https://i.loli.net/2018/04/24/5adf24c945b92.png) center;
 	background-size:cover;
+	display:flex;
+	justify-content:center;
+	align-items:center; 
 }
-
 
 
 
@@ -100,12 +104,49 @@
 	}
 }
 
+/*lyric*/
 
-footer{
+
+.lyric{
+	width:200px;
+	height:180px;
+	background: transparent;
+	color:white; 
+	position: absolute;
+	bottom:100px;
+	left:50%;
+	transform:translateX(-50%);
+	overflow:scroll; 
+	overflow-y: hidden;
+	text-align: center;
+	padding:50px 0; 
+	    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*footer*/
+footer{ 
+	margin-top:200px;
 	display: flex;
 	justify-content:space-between;
 	padding:10px 10px;
-	margin-top:220px; 
+	
 }
 footer .button{
 	text-align: center;
@@ -123,4 +164,15 @@ footer .download{
 	background:#e70a0e;
 	color: #feffff;
 }
+.icon-bofang,
+.icon-zanting{
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);  
+	position: absolute;
+	color:white;
+	opacity:0.5;  
+	font-size:80px;  
+}
+
 
